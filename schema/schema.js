@@ -72,6 +72,7 @@ const RootQuery = new GraphQLObjectType({
         return Book.findById(args.id);
       }
     },
+
     author: {
       type: AuthorType,
       args: {
@@ -82,6 +83,7 @@ const RootQuery = new GraphQLObjectType({
         return Author.findById(args.id);
       }
     },
+
     books: {
       type: new GraphQLList(BookType),
       resolve(parent, args) {
@@ -117,6 +119,7 @@ const Mutation = new GraphQLObjectType({
         return author.save();
       }
     },
+    
     addBook: {
       type: BookType,
       args: {
